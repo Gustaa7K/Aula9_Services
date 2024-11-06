@@ -1,20 +1,22 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
+import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms'; // Importe o FormsModule
+import { HttpClientModule } from '@angular/common/http';
 
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { AlunoComponent } from './components/aluno/aluno.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    AlunoComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    FormsModule, // Adicione o FormsModule aqui
+    HttpClientModule
   ],
-  providers: [
-    provideClientHydration()
-  ],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

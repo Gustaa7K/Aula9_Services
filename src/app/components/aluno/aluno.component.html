@@ -1,0 +1,32 @@
+<div>
+  <h2>Buscar Aluno por ID</h2>
+  <form #buscarForm="ngForm" (ngSubmit)="buscarAlunoPorId(buscarForm)">
+    <input type="number" name="id" ngModel placeholder="ID do aluno" required>
+    <button type="submit">Buscar</button>
+  </form>
+
+  <h2>Cadastrar Novo Aluno</h2>
+  <form #cadastrarForm="ngForm" (ngSubmit)="cadastrarAluno(cadastrarForm)">
+    <input type="text" name="nome" ngModel placeholder="Nome" required>
+    <input type="number" name="idade" ngModel placeholder="Idade" required>
+    <input type="text" name="ra" ngModel placeholder="RA" required>
+    <button type="submit">Cadastrar</button>
+  </form>
+
+  <h2>Editar Aluno</h2>
+  <form #editarForm="ngForm" (ngSubmit)="editarAluno(editarForm)">
+    <input type="number" name="id" ngModel [value]="aluno.id" readonly>
+    <input type="text" name="nome" ngModel [value]="aluno.nome" placeholder="Nome" required>
+    <input type="number" name="idade" ngModel [value]="aluno.idade" placeholder="Idade" required>
+    <input type="text" name="ra" ngModel [value]="aluno.ra" placeholder="RA" required>
+    <button type="submit">Editar</button>
+  </form>
+
+  <h2>Lista de Alunos</h2>
+  <ul>
+    <li *ngFor="let aluno of alunos">
+      {{ aluno.id }} - {{ aluno.nome }} - {{ aluno.idade }} anos - RA: {{ aluno.ra }}
+      <button (click)="apagarAluno(aluno.id)">Apagar</button>
+    </li>
+  </ul>
+</div>
